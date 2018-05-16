@@ -203,7 +203,6 @@ public class Inputpelanggan extends AppCompatActivity {
                     mDialog.dismiss();
                     final tbl_user tbl_user = dataSnapshot.child(username.toString()).getValue(laundry.laundry.linkdatabase.tbl_user.class);
                     if (tbl_user.getUsername().equals(username.toString())) {
-                        Toast.makeText(Inputpelanggan.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), Homepemilik.class);
                         intent.putExtra(Nama, tbl_user.getNama());
                         intent.putExtra(Alamat, tbl_user.getAlamat());
