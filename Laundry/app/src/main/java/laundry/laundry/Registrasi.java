@@ -27,6 +27,14 @@ import laundry.laundry.linkdatabase.tbl_user;
 public class Registrasi extends AppCompatActivity {
     private static final int REQUEST_SIGNUP = 0;
 
+    public static final String Nama = "nama";
+    public static final String Alamat= "alamat";
+    public static final String Email= "email";
+    public static final String Nohp= "nohp";
+    public static final String Harga= "harga";
+    public static final String UsernameP = "username";
+    public static final String PasswordP = "password";
+
     @BindView(R.id.signinLink) TextView _signinLink;
     @BindView(R.id.backbtn) TextView _backbtn;
 
@@ -130,8 +138,18 @@ public class Registrasi extends AppCompatActivity {
                             tbl_user tbl_user = new tbl_user(editUsername.getText().toString(), editPassword.getText().toString(), editNama.getText().toString(), editAlamat.getText().toString(), editEmail.getText().toString(), editNohp.getText().toString(), editHarga.getText().toString());
                             tabel_user.child(editUsername.getText().toString()).setValue(tbl_user);
                             Toast.makeText(Registrasi.this, "Berhasil Registrasi", Toast.LENGTH_SHORT).show();
-                            Intent i = new Intent(Registrasi.this, Homepemilik.class);
-                            startActivity(i);
+
+                            Intent intent = new Intent(getApplicationContext(), Homepemilik.class);
+
+                            intent.putExtra(Nama, tbl_user.getNama());
+                            intent.putExtra(Alamat, tbl_user.getAlamat());
+                            intent.putExtra(Email, tbl_user.getEmail());
+                            intent.putExtra(Nohp, tbl_user.getNohp());
+                            intent.putExtra(Harga, tbl_user.getHarga());
+                            intent.putExtra(UsernameP, tbl_user.getUsername());
+                            intent.putExtra(PasswordP, tbl_user.getPassword());
+
+                            startActivity(intent);
                             finish();
                         }
                     }

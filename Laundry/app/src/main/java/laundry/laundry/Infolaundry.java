@@ -25,8 +25,13 @@ import laundry.laundry.linkdatabase.tbl_user;
 
 public class Infolaundry extends AppCompatActivity {
 
+    public static final String Nama = "nama";
+    public static final String Alamat= "alamat";
+    public static final String Email= "email";
+    public static final String Nohp= "nohp";
+    public static final String Harga= "harga";
     public static final String Username = "username";
-
+    public static final String Password = "password";
     @BindView(R.id.listBtn) TextView _listbtn;
     @BindView(R.id.backbtn) TextView _backbtn;
 
@@ -104,11 +109,16 @@ public class Infolaundry extends AppCompatActivity {
                             mDialog.dismiss();
                             final tbl_user tbl_user = dataSnapshot.child(username.toString()).getValue(laundry.laundry.linkdatabase.tbl_user.class);
                             if (tbl_user.getUsername().equals(username.toString())) {
-                                Toast.makeText(Infolaundry.this, "Login Berhasil", Toast.LENGTH_SHORT).show();
 
                                 // Start the Signup activity
                                 Intent intent = new Intent(getApplicationContext(), Liststatusplgn.class);
+                                intent.putExtra(Nama, tbl_user.getNama());
+                                intent.putExtra(Alamat, tbl_user.getAlamat());
+                                intent.putExtra(Email, tbl_user.getEmail());
+                                intent.putExtra(Nohp, tbl_user.getNohp());
+                                intent.putExtra(Harga, tbl_user.getHarga());
                                 intent.putExtra(Username, tbl_user.getUsername());
+                                intent.putExtra(Password, tbl_user.getPassword());
                                 startActivity(intent);
                                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                                 finish();
