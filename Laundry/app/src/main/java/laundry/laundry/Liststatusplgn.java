@@ -1,7 +1,6 @@
 package laundry.laundry;
 
 import android.annotation.SuppressLint;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,7 +11,6 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -36,13 +34,7 @@ import static laundry.laundry.R.id.viewUsername;
 
 public class Liststatusplgn extends AppCompatActivity {
 
-    public static final String Nama = "nama";
-    public static final String Alamat= "alamat";
-    public static final String Email= "email";
-    public static final String Nohp= "nohp";
-    public static final String Harga= "harga";
     public static final String Username = "username";
-    public static final String Password = "password";
 
     MaterialSearchView searchView;
 
@@ -112,54 +104,11 @@ public class Liststatusplgn extends AppCompatActivity {
         });
     }
 
-    final FirebaseDatabase database = FirebaseDatabase.getInstance();
-    final DatabaseReference table_user = database.getReference("tbl_user");
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // handle arrow click here
         if (item.getItemId() == android.R.id.home) {
             startActivity(new Intent(this, Infolaundry.class));// close this activity and return to preview activity (if there is any)
-            if (item.getItemId() == android.R.id.home) {
-
-                final Intent intent = getIntent();
-                final String username = intent.getStringExtra(Infolaundry.Username);
-                final ProgressDialog mDialog = new ProgressDialog(Liststatusplgn.this);
-                mDialog.setMessage("Mohon menunggu..");
-                mDialog.show();
-
-                table_user.addListenerForSingleValueEvent(new ValueEventListener() {
-
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        //cek jika user tidak terdaftar didatabase
-                        if (dataSnapshot.child(username.toString()).exists()) {
-
-                            //ambil data user
-                            mDialog.dismiss();
-                            final tbl_user tbl_user = dataSnapshot.child(username.toString()).getValue(laundry.laundry.linkdatabase.tbl_user.class);
-                            if (tbl_user.getUsername().equals(username.toString())) {
-                                Intent intent = new Intent(getApplicationContext(), Infolaundry.class);
-                                intent.putExtra(Nama, tbl_user.getNama());
-                                intent.putExtra(Alamat, tbl_user.getAlamat());
-                                intent.putExtra(Email, tbl_user.getEmail());
-                                intent.putExtra(Nohp, tbl_user.getNohp());
-                                intent.putExtra(Harga, tbl_user.getHarga());
-                                intent.putExtra(Username, tbl_user.getUsername());
-                                intent.putExtra(Password, tbl_user.getPassword());
-                                startActivity(intent);
-                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                                finish();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
-            }
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         }
         return super.onOptionsItemSelected(item);
@@ -180,43 +129,6 @@ public class Liststatusplgn extends AppCompatActivity {
         super.onBackPressed();
         i = new Intent(Liststatusplgn.this, Infolaundry.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        final Intent intent = getIntent();
-        final String username = intent.getStringExtra(Infolaundry.Username);
-        final ProgressDialog mDialog = new ProgressDialog(Liststatusplgn.this);
-        mDialog.setMessage("Mohon menunggu..");
-        mDialog.show();
-
-        table_user.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                //cek jika user tidak terdaftar didatabase
-                if (dataSnapshot.child(username.toString()).exists()) {
-
-                    //ambil data user
-                    mDialog.dismiss();
-                    final tbl_user tbl_user = dataSnapshot.child(username.toString()).getValue(laundry.laundry.linkdatabase.tbl_user.class);
-                    if (tbl_user.getUsername().equals(username.toString())) {
-                        Intent intent = new Intent(getApplicationContext(), Infolaundry.class);
-                        intent.putExtra(Nama, tbl_user.getNama());
-                        intent.putExtra(Alamat, tbl_user.getAlamat());
-                        intent.putExtra(Email, tbl_user.getEmail());
-                        intent.putExtra(Nohp, tbl_user.getNohp());
-                        intent.putExtra(Harga, tbl_user.getHarga());
-                        intent.putExtra(Username, tbl_user.getUsername());
-                        intent.putExtra(Password, tbl_user.getPassword());
-                        startActivity(intent);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                        finish();
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
