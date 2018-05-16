@@ -25,20 +25,6 @@
 
 
         <EditText
-            android:id="@+id/upUsername"
-            android:layout_width="300dp"
-            android:layout_height="30dp"
-            android:hint="Username"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            android:textAlignment="center"
-            android:background="@drawable/kotakhint"
-            android:inputType="text"
-            android:maxLines="1"
-            android:layout_weight="1"
-            />
-
-        <EditText
             android:id="@+id/upEmail"
             android:layout_width="300dp"
             android:layout_height="30dp"

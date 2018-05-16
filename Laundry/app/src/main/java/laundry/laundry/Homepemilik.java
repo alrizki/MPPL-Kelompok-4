@@ -214,8 +214,23 @@ public class Homepemilik extends AppCompatActivity {
                 String harga = upHarga.getText().toString();
                 String email = upEmail.getText().toString();
 
-                if(TextUtils.isEmpty(nama)){
+                if(TextUtils.isEmpty(email)){
+                    upEmail.setError("Email tidak boleh kosong");
+                    return;
+                }else if(TextUtils.isEmpty(password)){
+                    upPassword.setError("Password tidak boleh kosong");
+                    return;
+                } else if(TextUtils.isEmpty(nama)){
                     upNama.setError("Nama tidak boleh kosong");
+                    return;
+                }else if(TextUtils.isEmpty(alamat)){
+                    upAlamat.setError("Alamat tidak boleh kosong");
+                    return;
+                }else if(TextUtils.isEmpty(nohp)){
+                    upNohp.setError("No Handphone tidak boleh kosong");
+                    return;
+                }else if(TextUtils.isEmpty(harga)){
+                    upHarga.setError("Harga tidak boleh kosong");
                     return;
                 }
 
