@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="click">#4DD0E1</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="textColor">#FFFFFF</color>
+    <color name="textColorBlack">#000000</color>
+    <color name="graylight">#fafafa</color>
+    <color name="startblue">#09c6df</color>
+    <color name="endblue">#0bcce6</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="btnTransparent">#00ffffff</color>
+    <color name="btnhighlight">#ffffff</color>
+    <color name="yellow">#ffa545</color>
+    <color name="tabTextColor">#FFFFFF</color>
+    <color name="tabIndicatorColor">#2D2D2D</color>
+    <color name="whiteTransparent">#80FFFFFF</color>
+    <color name="blackTransparent">#80000000</color>
+
+</resources>

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registrasi"
+    android:background="@drawable/loginscreen"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:clickable="true"
+        android:textColor="@drawable/textview_color_change1"
+        android:text="Kembali"
+        android:textSize="20dp"
+        android:gravity="center"
+        tools:ignore="RtlCompat"
+        android:drawableLeft="@drawable/ic_keyboard_arrow_left_black_24dp"
+        />
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="93dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:background="@drawable/logoandroidtext" />
+
+    <RelativeLayout
+        android:id="@+id/kotaktransparan"
+        android:layout_width="330dp"
+        android:layout_height="410dp"
+        android:layout_marginTop="180dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/kotaktransparansignup">
+
+        <TextView
+            android:layout_width="115dp"
+            android:layout_height="61dp"
+            android:background="@drawable/signuplogo"
+            android:layout_centerHorizontal="true"/>
+
+        <EditText
+            android:id="@+id/editUsername"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="Username"
+            android:layout_marginTop="70dp"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:layout_weight="1"
+            />
+
+        <EditText
+            android:id="@+id/editEmail"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="E-mail"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_below="@+id/editUsername"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="Password"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_below="@+id/editEmail"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/editNama"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="Nama Perusahaan / Laundry"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_below="@+id/editPassword"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/editAlamat"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="Alamat Laundry"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_below="@+id/editNama"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/editNohp"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="Nomor Telepon"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_below="@+id/editAlamat"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/editHarga"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="Harga"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_below="@+id/editNohp"
+            android:layout_marginTop="5dp"
+            />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_above="@+id/btnRegistrasi"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Sudah Punya Akun ?"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/signinLink"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="5dp"
+                android:text="Masuk Disini"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:textColor="@drawable/textview_color_change"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnRegistrasi"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_centerHorizontal="true"
+            android:text="Sign Up"
+            android:theme="@style/OnClick"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Laundroid@Copyright"
+        android:textSize="20dp"
+        android:textAlignment="center"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/white"
+        android:layout_marginBottom="5dp"/>
+
+</RelativeLayout>

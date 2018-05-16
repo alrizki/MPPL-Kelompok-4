@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/white</item>
+    </style>
+
+    <style name="PrimaryButton" parent="Theme.AppCompat">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+
+    <style name="OnClick1" parent="Theme.AppCompat">
+        <item name="colorControlHighlight">@color/yellow</item>
+    </style>
+
+    <style name="OnClick" parent="Theme.AppCompat">
+        <item name="colorControlHighlight">@color/btnhighlight</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" >
+        <item name="android:windowContentOverlay">@null</item>
+        <!--below line used to change the color of home(back) button color-->
+        <item name="colorControlNormal">@color/yellow</item>
+    </style>
+</resources>
