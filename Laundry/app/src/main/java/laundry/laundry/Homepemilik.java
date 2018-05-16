@@ -248,7 +248,7 @@ public class Homepemilik extends AppCompatActivity {
 
         databaseReference.setValue(user);
 
-        Toast.makeText(this, "Data Berhasil di Ubah", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Data Berhasil di Ubah, Silahkan Logout dan Login Kembali", Toast.LENGTH_LONG).show();
 
         return true;
     }
