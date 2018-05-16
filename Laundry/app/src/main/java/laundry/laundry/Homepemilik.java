@@ -95,7 +95,7 @@ public class Homepemilik extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start the Signup activity
-                Intent intent = new Intent(getApplicationContext(), Listlaundry.class);
+                Intent intent = new Intent(getApplicationContext(), Login.class);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 finish();
@@ -243,7 +243,7 @@ public class Homepemilik extends AppCompatActivity {
         Intent i;
 
         super.onBackPressed();
-        i = new Intent(Homepemilik.this, Listlaundry.class);
+        i = new Intent(Homepemilik.this, Login.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
