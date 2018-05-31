@@ -27,6 +27,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import laundry.laundry.linkdatabase.maps;
 import laundry.laundry.linkdatabase.tbl_user;
 
 
@@ -44,9 +45,11 @@ public class Homepemilik extends AppCompatActivity {
     public static final String Username = "username";
     public static final String Password = "password";
 
+
     @BindView(R.id.Inputplgn) TextView _inputplgn;
     @BindView(R.id.btnEdit) TextView _btnedit;
     @BindView(R.id.backbtn) TextView _backbtn;
+    @BindView(R.id.addMaps) TextView _addMaps;
 
     TextView viewNama;
     TextView viewAlamat;
@@ -55,7 +58,6 @@ public class Homepemilik extends AppCompatActivity {
     TextView viewHarga;
     TextView viewUsername;
 
-    Button btnEdit, btnInputplgn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +92,81 @@ public class Homepemilik extends AppCompatActivity {
         viewNohp.setText(nohp);
         viewHarga.setText(harga);
 
+        final DatabaseReference maps = database.getReference("maps");
+
+        _addMaps.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // Start the Signup activity
+                Intent intent = new Intent(getApplicationContext(), Mapspemilik.class);
+                startActivity(intent);
+
+                final ProgressDialog mDialog = new ProgressDialog(Homepemilik.this);
+                mDialog.setMessage("Mohon menunggu..");
+                mDialog.show();
+
+                table_user.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        //cek jika user tidak terdaftar didatabase
+                        if (dataSnapshot.child(username.toString()).exists()) {
+
+                            //ambil data user
+                            mDialog.dismiss();
+                            final tbl_user tbl_user = dataSnapshot.child(username.toString()).getValue(laundry.laundry.linkdatabase.tbl_user.class);
+                            if (tbl_user.getUsername().equals(username.toString())) {
+                                maps.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        //cek jika user tidak terdaftar didatabase
+                                        final maps map = dataSnapshot.child(username).getValue(maps.class);
+                                        if (dataSnapshot.child(username.toString()).exists()) {
+
+                                            if (tbl_user.getUsername().equals(username.toString())) {
+                                                Intent intent = new Intent(getApplicationContext(), Mapspemilik.class);
+                                                intent.putExtra("lat", map.getLat());
+                                                intent.putExtra("lng", map.getLng());
+                                                intent.putExtra(Nama, tbl_user.getNama());
+                                                intent.putExtra(Alamat, tbl_user.getAlamat());
+                                                intent.putExtra(Email, tbl_user.getEmail());
+                                                intent.putExtra(Nohp, tbl_user.getNohp());
+                                                intent.putExtra(Harga, tbl_user.getHarga());
+                                                intent.putExtra(Username, tbl_user.getUsername());
+                                                intent.putExtra(Password, tbl_user.getPassword());
+
+
+                                                startActivity(intent);
+                                            }
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
+
+
+                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                finish();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                finish();
+            }
+        });
+
         _backbtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -97,6 +174,43 @@ public class Homepemilik extends AppCompatActivity {
                 // Start the Signup activity
                 Intent intent = new Intent(getApplicationContext(), Listlaundry.class);
                 startActivity(intent);
+
+                final ProgressDialog mDialog = new ProgressDialog(Homepemilik.this);
+                mDialog.setMessage("Mohon menunggu..");
+                mDialog.show();
+
+                table_user.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        //cek jika user tidak terdaftar didatabase
+                        if (dataSnapshot.child(username.toString()).exists()) {
+
+                            //ambil data user
+                            mDialog.dismiss();
+                            final tbl_user tbl_user = dataSnapshot.child(username.toString()).getValue(laundry.laundry.linkdatabase.tbl_user.class);
+                            if (tbl_user.getUsername().equals(username.toString())) {
+                                Intent intent = new Intent(getApplicationContext(), Inputpelanggan.class);
+                                intent.putExtra(Nama, tbl_user.getNama());
+                                intent.putExtra(Alamat, tbl_user.getAlamat());
+                                intent.putExtra(Email, tbl_user.getEmail());
+                                intent.putExtra(Nohp, tbl_user.getNohp());
+                                intent.putExtra(Harga, tbl_user.getHarga());
+                                intent.putExtra(Username, tbl_user.getUsername());
+                                intent.putExtra(Password, tbl_user.getPassword());
+                                startActivity(intent);
+                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                finish();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 finish();
             }

@@ -99,6 +99,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/btnMaps"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:clickable="true"
@@ -221,6 +222,13 @@
                     android:text="Harga Sementara"
                     android:textStyle="bold" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btnShare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Share" />
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>

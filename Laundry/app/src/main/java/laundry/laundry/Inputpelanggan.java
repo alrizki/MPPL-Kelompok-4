@@ -184,7 +184,7 @@ public class Inputpelanggan extends AppCompatActivity {
         Intent i;
 
         super.onBackPressed();
-        i = new Intent(Inputpelanggan.this, Homepemilik.class);
+        i = new Intent(   Inputpelanggan.this, Homepemilik.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         final Intent intent = getIntent();
         final String username = intent.getStringExtra(Homepemilik.Username);

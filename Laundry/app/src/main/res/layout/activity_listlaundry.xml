@@ -14,19 +14,6 @@
         android:background="@color/black"
         />
 
-    <com.miguelcatalan.materialsearchview.MaterialSearchView
-        android:id="@+id/searchView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:searchBackground="@color/yellow"
-        app:searchSuggestionBackground="@color/colorPrimary"
-        app:searchCloseIcon="@drawable/ic_action_navigation_close_inverted"
-        app:searchBackIcon="@drawable/ic_action_navigation_arrow_back_inverted"
-        app:searchSuggestionIcon="@drawable/ic_suggestion"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        />
-
     <ListView
         android:id="@+id/listviewUser"
         android:layout_height="fill_parent"

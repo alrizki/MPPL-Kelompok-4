@@ -19,6 +19,7 @@
     <string name="error_message_nohp">Enter No. Hp</string>
     <string name="error_message_harga">Enter Harga</string>
     <string name="success_message">Sign Up Successful</string>
+    <string name="title_activity_maps">Map</string>
 
     <string-array name="cekstatus">
         <item>On Progress</item>

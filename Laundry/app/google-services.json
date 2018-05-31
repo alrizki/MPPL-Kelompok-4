@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "898274374202-66ulq6p7lchrj651qrp19etohjaan864.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "laundry.laundry",
+            "certificate_hash": "1919ecb095526530f17294e60d9920ef8a93bede"
+          }
+        },
+        {
           "client_id": "898274374202-au6loppg3mf012g8c8cj21ql8nl15hst.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -29,6 +37,10 @@
             "package_name": "laundry.laundry",
             "certificate_hash": "c54e46de06611426f147126f89d16c60c3d1a654"
           }
+        },
+        {
+          "client_id": "898274374202-saqskieu9uevkrr392avj9fih2t33neo.apps.googleusercontent.com",
+          "client_type": 3
         },
         {
           "client_id": "898274374202-saqskieu9uevkrr392avj9fih2t33neo.apps.googleusercontent.com",

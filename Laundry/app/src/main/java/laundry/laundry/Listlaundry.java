@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
@@ -41,8 +42,6 @@ public class Listlaundry extends AppCompatActivity {
     public static final String Harga= "harga";
     public static final String Username= "username";
 
-    MaterialSearchView searchView;
-
     ListView listviewUser;
 
     List<tbl_user> userList;
@@ -63,9 +62,6 @@ public class Listlaundry extends AppCompatActivity {
         getSupportActionBar().setTitle("Daftar Laundry");
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
 
-
-
-        searchView = findViewById(R.id.searchView);
 
         databaseUser = FirebaseDatabase.getInstance().getReference("tbl_user");
         listviewUser = (ListView) findViewById(R.id.listviewUser);
@@ -89,35 +85,6 @@ public class Listlaundry extends AppCompatActivity {
 
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
-        });
-
-        //searchView.setOnSearchViewListener(new MaterialSearchView.SearchViewListener() {
-            //@Override
-            //public void onSearchViewShown() {
-            //}
-            //@Override
-            //public void onSearchViewClosed() {
-
-                //If closed Search View , lstView will return default
-                //listviewUser = (ListView)findViewById(R.id.listviewUser);
-                //ArrayAdapter adapter = new ArrayAdapter(Listlaundry.this,android.R.layout.simple_list_item_1,userList);
-                //listviewUser.setAdapter(adapter);
-
-            //}
-        //});
-
-        searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-
-                adapter.getFilter().filter(newText);
-                return true;
             }
         });
     }
@@ -159,14 +126,6 @@ public class Listlaundry extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_item,menu);
-        MenuItem item = menu.findItem(R.id.action_search);
-        searchView.setMenuItem(item);
-        return true;
-    }
 
     @Override
     public void onBackPressed() {
