@@ -64,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:weightSum="3">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -105,6 +105,26 @@
                             android:textSize="16sp"
                             android:textColor="@drawable/textview_color_change1"
                             android:drawableTop="@drawable/ic_format_list_bulleted_black_24dp"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/addMaps"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:clickable="true"
+                            android:text="Tambah Lokasi"
+                            android:textSize="16sp"
+                            android:textColor="@drawable/textview_color_change1"
+                            android:drawableTop="@drawable/ic_location_on_black_24dp"/>
 
                     </LinearLayout>
                 </LinearLayout>
@@ -219,9 +239,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/addMaps"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Maps" />
 </LinearLayout>

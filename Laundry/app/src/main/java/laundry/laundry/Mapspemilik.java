@@ -185,10 +185,10 @@ public class Mapspemilik extends AppCompatActivity implements OnMapReadyCallback
                 public View getInfoContents(Marker marker) {
                     View v = getLayoutInflater().inflate(R.layout.marker, null);
 
-                    TextView tvLocality = (TextView) v.findViewById(R.id.tv_locality);
-                    TextView tvLat = (TextView) v.findViewById(R.id.tv_lat);
-                    TextView tvLng = (TextView) v.findViewById(R.id.tv_lng);
-                    TextView tvSnippet = (TextView) v.findViewById(R.id.tv_snippet);
+                    TextView tvLocality = v.findViewById(R.id.tv_locality);
+                    TextView tvLat = v.findViewById(R.id.tv_lat);
+                    TextView tvLng = v.findViewById(R.id.tv_lng);
+                    TextView tvSnippet = v.findViewById(R.id.tv_snippet);
 
                     LatLng ll = marker.getPosition();
                     tvLocality.setText(marker.getTitle());
@@ -225,7 +225,7 @@ public class Mapspemilik extends AppCompatActivity implements OnMapReadyCallback
 
 
     public void geoLocate(View view) throws IOException {
-        EditText et = (EditText) findViewById(R.id.editText);
+        EditText et = findViewById(R.id.editText);
         String location = et.getText().toString();
 
         Geocoder gc = new Geocoder(this);
@@ -292,11 +292,7 @@ public class Mapspemilik extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onBackPressed() {
-        Intent i;
 
-        super.onBackPressed();
-        i = new Intent(   Mapspemilik.this, Homepemilik.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         final Intent intent = getIntent();
         final String username = intent.getStringExtra(Homepemilik.Username);
         final ProgressDialog mDialog = new ProgressDialog(Mapspemilik.this);
@@ -334,8 +330,5 @@ public class Mapspemilik extends AppCompatActivity implements OnMapReadyCallback
 
             }
         });
-        startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        finish();
     }
 }

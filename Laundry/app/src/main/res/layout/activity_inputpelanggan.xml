@@ -7,74 +7,128 @@
     android:layout_height="match_parent"
     tools:context="laundry.laundry.Inputpelanggan">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="119dp"
-        android:layout_height="44dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/viewUsername"
-        android:layout_marginTop="13dp"
-        android:text="Nama"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <EditText
-        android:id="@+id/editPlgn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView2"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text=""
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <Spinner
-        android:id="@+id/editStatus"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editPlgn"
-        android:layout_below="@+id/textView5"
-        android:layout_marginEnd="25dp"
-        android:entries="@array/cekstatus" />
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="#212121">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="119dp"
-        android:layout_height="32dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editPlgn"
-        android:text="Status"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="60dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom">
+            <TextView
+                android:id="@+id/ic_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:drawableStart="@drawable/ic_search" />
 
-    <TextView
-        android:id="@+id/viewUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="104dp" />
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                app:cardBackgroundColor="@color/whiteTransparent"
+                app:cardCornerRadius="7dp"
+                android:elevation="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="7dp">
 
-    <Button
-        android:id="@+id/btnSimpan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editStatus"
-        android:layout_toEndOf="@+id/editStatus"
-        android:text="Simpan"
-        tools:layout_editor_absoluteX="5dp"
-        tools:layout_editor_absoluteY="142dp" />
+                <EditText
+                    android:id="@+id/editPlgn"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/black"
+                    android:hint="Nama..."
+                    android:paddingLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:maxLines="1"
+                    android:background="@android:color/transparent"/>
+            </android.support.v7.widget.CardView>
+
+            <TextView
+                android:id="@+id/viewUsername"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Username"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:layout_marginLeft="5dp"/>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_below="@id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:weightSum="2"
+        android:background="@color/blackTransparent"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="Status"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"/>
+            <Spinner
+                android:id="@+id/editStatus"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:entries="@array/cekstatus"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/btnSimpan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:text="Simpan"
+                android:drawableTop="@drawable/ic_save"
+                android:textColor="@drawable/text_color_change3"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+
 
     <ListView
         android:id="@+id/listviewPlgn"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textView5"
-        android:layout_marginTop="90dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="75dp" />
+        android:layout_below="@+id/layout"
+        android:divider="@null"/>
 
 </RelativeLayout>

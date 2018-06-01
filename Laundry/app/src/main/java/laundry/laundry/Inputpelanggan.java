@@ -25,6 +25,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import laundry.laundry.linkdatabase.pelanggan;
 import laundry.laundry.linkdatabase.tbl_user;
 
@@ -38,11 +40,12 @@ public class Inputpelanggan extends AppCompatActivity {
     public static final String Username = "username";
     public static final String Password = "password";
 
+    @BindView(R.id.btnSimpan) TextView _btnSimpan;
+
     TextView viewUsername;
     EditText editPlgn;
     Spinner editStatus;
 
-    Button btnSimpan;
 
     ListView listViewPlgn;
 
@@ -54,13 +57,13 @@ public class Inputpelanggan extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inputpelanggan);
+        ButterKnife.bind(this);
 
         viewUsername = (TextView) findViewById(R.id.viewUsername);
         editPlgn = (EditText) findViewById(R.id.editPlgn);
         editStatus = (Spinner) findViewById(R.id.editStatus);
 
 
-        btnSimpan = (Button) findViewById(R.id.btnSimpan);
 
         listViewPlgn = (ListView) findViewById(R.id.listviewPlgn);
 
@@ -74,7 +77,7 @@ public class Inputpelanggan extends AppCompatActivity {
 
         databasePlgn = FirebaseDatabase.getInstance().getReference("plgn").child(username);
 
-        btnSimpan.setOnClickListener(new View.OnClickListener() {
+        _btnSimpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                savePlgn();

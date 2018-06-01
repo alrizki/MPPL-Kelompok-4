@@ -3,10 +3,13 @@ package laundry.laundry;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -23,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import laundry.laundry.linkdatabase.pelanggan;
 import laundry.laundry.linkdatabase.tbl_user;
 
@@ -47,10 +52,20 @@ public class Liststatusplgn extends AppCompatActivity {
 
     private DatabaseReference mUserDatabase;
 
+    @BindView(R.id.search_btn) TextView _mSearchBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_liststatusplgn);
+        ButterKnife.bind(this);
+
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_black_24dp);
+        getSupportActionBar().setTitle("List Status Laundry");
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
 
         final Intent intent = getIntent();
 
@@ -58,28 +73,22 @@ public class Liststatusplgn extends AppCompatActivity {
 
         mUserDatabase = FirebaseDatabase.getInstance().getReference("plgn").child((username));
 
-        mSearchField = (EditText) findViewById(R.id.search_field);
-        mSearchBtn = (ImageButton) findViewById(R.id.search_btn);
+        mSearchField = findViewById(R.id.search_field);
 
-        mResultList = (RecyclerView) findViewById(R.id.result_list);
+        mResultList = findViewById(R.id.result_list);
         mResultList.setHasFixedSize(true);
         mResultList.setLayoutManager(new LinearLayoutManager(this));
 
-        mSearchBtn.setOnClickListener(new View.OnClickListener() {
+        _mSearchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 String searchText = mSearchField.getText().toString();
-
                 firebaseUserSearch(searchText);
 
             }
         });
-
         String searchText = mSearchField.getText().toString();
-
         firebaseUserSearch(searchText);
-
     }
 
     private void firebaseUserSearch(String searchText) {
@@ -130,6 +139,16 @@ public class Liststatusplgn extends AppCompatActivity {
             user_status.setText(userStatus);
 
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // handle arrow click here
+        if (item.getItemId() == android.R.id.home) {
+            startActivity(new Intent(this, Infolaundry.class));// close this activity and return to preview activity (if there is any)
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     final FirebaseDatabase database = FirebaseDatabase.getInstance();

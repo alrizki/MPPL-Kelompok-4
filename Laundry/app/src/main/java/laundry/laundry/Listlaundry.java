@@ -50,6 +50,8 @@ public class Listlaundry extends AppCompatActivity {
 
     DatabaseReference databaseUser;
 
+    MaterialSearchView searchView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +66,7 @@ public class Listlaundry extends AppCompatActivity {
 
 
         databaseUser = FirebaseDatabase.getInstance().getReference("tbl_user");
+        searchView = (MaterialSearchView)findViewById(R.id.search_view);
         listviewUser = (ListView) findViewById(R.id.listviewUser);
         userList = new ArrayList<>();
 
@@ -89,8 +92,6 @@ public class Listlaundry extends AppCompatActivity {
         });
     }
 
-
-
     @Override
     protected void onStart() {
         super.onStart();
@@ -113,6 +114,14 @@ public class Listlaundry extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_item,menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        searchView.setMenuItem(item);
+        return true;
     }
 
 

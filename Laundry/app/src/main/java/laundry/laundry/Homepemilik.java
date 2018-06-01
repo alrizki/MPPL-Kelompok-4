@@ -98,10 +98,8 @@ public class Homepemilik extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // Start the Signup activity
-                Intent intent = new Intent(getApplicationContext(), Mapspemilik.class);
-                startActivity(intent);
-
+                final Intent intent = getIntent();
+                final String username = intent.getStringExtra(Homepemilik.Username);
                 final ProgressDialog mDialog = new ProgressDialog(Homepemilik.this);
                 mDialog.setMessage("Mohon menunggu..");
                 mDialog.show();
@@ -136,9 +134,10 @@ public class Homepemilik extends AppCompatActivity {
                                                 intent.putExtra(Harga, tbl_user.getHarga());
                                                 intent.putExtra(Username, tbl_user.getUsername());
                                                 intent.putExtra(Password, tbl_user.getPassword());
-
-
                                                 startActivity(intent);
+                                                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                                                finish();
+
                                             }
                                         }
                                     }
@@ -148,10 +147,6 @@ public class Homepemilik extends AppCompatActivity {
 
                                     }
                                 });
-
-
-                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                                finish();
                             }
                         }
                     }
@@ -171,13 +166,6 @@ public class Homepemilik extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                // Start the Signup activity
-                Intent intent = new Intent(getApplicationContext(), Listlaundry.class);
-                startActivity(intent);
-
-                final ProgressDialog mDialog = new ProgressDialog(Homepemilik.this);
-                mDialog.setMessage("Mohon menunggu..");
-                mDialog.show();
 
                 table_user.addListenerForSingleValueEvent(new ValueEventListener() {
 
@@ -187,10 +175,9 @@ public class Homepemilik extends AppCompatActivity {
                         if (dataSnapshot.child(username.toString()).exists()) {
 
                             //ambil data user
-                            mDialog.dismiss();
                             final tbl_user tbl_user = dataSnapshot.child(username.toString()).getValue(laundry.laundry.linkdatabase.tbl_user.class);
                             if (tbl_user.getUsername().equals(username.toString())) {
-                                Intent intent = new Intent(getApplicationContext(), Inputpelanggan.class);
+                                Intent intent = new Intent(getApplicationContext(), Login.class);
                                 intent.putExtra(Nama, tbl_user.getNama());
                                 intent.putExtra(Alamat, tbl_user.getAlamat());
                                 intent.putExtra(Email, tbl_user.getEmail());
@@ -199,7 +186,7 @@ public class Homepemilik extends AppCompatActivity {
                                 intent.putExtra(Username, tbl_user.getUsername());
                                 intent.putExtra(Password, tbl_user.getPassword());
                                 startActivity(intent);
-                                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                                 finish();
                             }
                         }
@@ -210,9 +197,6 @@ public class Homepemilik extends AppCompatActivity {
 
                     }
                 });
-
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-                finish();
             }
         });
 
@@ -372,7 +356,7 @@ public class Homepemilik extends AppCompatActivity {
         Intent i;
 
         super.onBackPressed();
-        i = new Intent(Homepemilik.this, Listlaundry.class);
+        i = new Intent(Homepemilik.this, Login.class);
         i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(i);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
