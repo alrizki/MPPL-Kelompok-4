@@ -34,4 +34,13 @@
         android:layout_marginTop="22dp"
         android:text="Simpan" />
 
+    <Button
+        android:id="@+id/btnHapus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnSimpans"
+        android:layout_alignBottom="@+id/btnSimpans"
+        android:text="Hapus"
+        android:layout_toEndOf="@+id/textView5" />
+
 </RelativeLayout>
