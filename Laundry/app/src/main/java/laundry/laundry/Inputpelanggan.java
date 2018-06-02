@@ -148,7 +148,6 @@ public class Inputpelanggan extends AppCompatActivity {
 
         final Spinner editStatus = (Spinner) dialogView.findViewById(R.id.editStatus);
         final Button btnSimpans = (Button) dialogView.findViewById(R.id.btnSimpans);
-        final Button btnHapus = (Button)dialogView.findViewById(R.id.btnHapus);
 
         dialogBuilder.setTitle("Update Status " + Nama);
 
@@ -166,23 +165,6 @@ public class Inputpelanggan extends AppCompatActivity {
                 alertDialog.dismiss();
             }
         });
-
-        btnHapus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                
-                hapusplgn(Username, plgnId);
-            }
-        });
-    }
-
-    private void hapusplgn(String username, String plgnId) {
-        DatabaseReference hapusPlgn = FirebaseDatabase.getInstance().getReference("plgn").child(username).child(plgnId);
-
-        hapusPlgn.removeValue();
-
-        Toast.makeText(this, "Pelanggan Sudah di hapus", Toast.LENGTH_LONG).show();
-
     }
 
     private boolean updateStatus(String Username, String plgnId, String Nama, String Status){
