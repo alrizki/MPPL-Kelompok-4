@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Home"
-    android:background="@drawable/loginscreen">
+    android:background="@drawable/background"
+    android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
         <TextView
             android:id="@+id/backbtn"
@@ -20,10 +25,11 @@
             android:textSize="20dp"
             android:gravity="center"
             tools:ignore="RtlCompat"
-            android:drawableLeft="@drawable/ic_keyboard_arrow_left_black_24dp" />
+            android:drawableLeft="@drawable/ic_arrow_left" />
 
 
     <TextView
+        android:id="@+id/logo"
         android:layout_width="250dp"
         android:layout_height="93dp"
         android:layout_centerHorizontal="true"
@@ -32,9 +38,10 @@
 
     <RelativeLayout
         android:id="@+id/kotaktransparan"
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="50dp"
         android:layout_width="330dp"
         android:layout_height="234dp"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:background="@drawable/kotaktransparan">
 
@@ -56,6 +63,7 @@
             android:inputType="text"
             android:maxLines="1"
             android:layout_weight="1"
+            android:imeOptions="actionNext"
             />
 
         <EditText
@@ -70,6 +78,7 @@
             android:inputType="textPassword"
             android:maxLines="1"
             android:layout_weight="1"
+            android:imeOptions="actionDone"
             />
 
         <LinearLayout
@@ -104,17 +113,9 @@
             android:layout_marginBottom="15dp"
             android:layout_centerHorizontal="true"
             android:text="Sign In"
-            android:theme="@style/OnClick"/>
+            android:theme="@style/PrimaryButton"/>
     </RelativeLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Laundroid@Copyright"
-        android:textSize="20dp"
-        android:textAlignment="center"
-        android:layout_alignParentBottom="true"
-        android:textColor="@color/white"
-        android:layout_marginBottom="5dp"/>
+    </RelativeLayout>
 
-</RelativeLayout>
+</ScrollView>

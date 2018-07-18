@@ -5,16 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="laundry.laundry.LaundryCustomer.InfoLaundry"
-    android:background="@color/graylight"
     android:orientation="vertical">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="260dp">
+
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="260dp"
-            android:background="@drawable/bg"
+            android:background="@color/colorPrimary"
             android:orientation="vertical"
             android:elevation="0dp">
 
@@ -66,13 +63,14 @@
                 android:layout_centerHorizontal="true"
                 app:cardBackgroundColor="@color/blackTransparent"
                 android:layout_gravity="bottom"
-                android:foregroundGravity="bottom">
+                android:foregroundGravity="bottom"
+                app:cardElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:weightSum="2">
+                    android:weightSum="3">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -84,10 +82,33 @@
 
 
                         <TextView
-                            android:id="@+id/listBtn"
+                            android:id="@+id/btnEdit"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                            android:background="?android:attr/selectableItemBackgroundBorderless"
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:text="Edit Profil"
+                            android:textSize="16sp"
+                            android:textColor="@drawable/textview_color_change1"
+                            android:drawableTop="@drawable/ic_edit"/>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/Inputplgn"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="?android:attr/selectableItemBackgroundBorderless"
                             android:clickable="true"
                             android:gravity="center"
                             android:text="List Laundry"
@@ -97,7 +118,6 @@
 
                     </LinearLayout>
 
-
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -107,35 +127,30 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/btnMaps"
+                            android:id="@+id/addMaps"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                            android:background="?android:attr/selectableItemBackgroundBorderless"
                             android:clickable="true"
                             android:gravity="center"
-                            android:text="Lokasi Laundry"
+                            android:text="Tambah Lokasi"
                             android:textSize="16sp"
                             android:textColor="@drawable/textview_color_change1"
                             android:drawableTop="@drawable/ic_maps"/>
 
                     </LinearLayout>
                 </LinearLayout>
-
             </android.support.v7.widget.CardView>
         </android.support.design.widget.AppBarLayout>
 
-
-    </RelativeLayout>
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="360dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
 
@@ -229,20 +244,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:paddingLeft="20dp"
+
                     android:text="Harga Sementara"
                     android:textStyle="bold" />
             </LinearLayout>
-
-            <Button
-                android:id="@+id/btnShare"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:gravity="center"
-                android:theme="@style/OnClick1"
-                android:drawableLeft="@drawable/ic_share"
-                android:text="Share" />
         </LinearLayout>
     </ScrollView>
 

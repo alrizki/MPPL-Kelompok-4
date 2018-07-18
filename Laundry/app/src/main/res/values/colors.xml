@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="click">#4DD0E1</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#00BCD4</color>
+    <color name="colorPrimaryDark">#0097A7</color>
+    <color name="colorAccent">#607D8B</color>
     <color name="textColor">#FFFFFF</color>
     <color name="textColorBlack">#000000</color>
     <color name="graylight">#fafafa</color>
@@ -18,5 +18,6 @@
     <color name="tabIndicatorColor">#2D2D2D</color>
     <color name="whiteTransparent">#80FFFFFF</color>
     <color name="blackTransparent">#80000000</color>
+    <color name="gray">#212121</color>
 
 </resources>

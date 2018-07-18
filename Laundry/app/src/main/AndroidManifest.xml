@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <permission android:name="gps.gps.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
@@ -24,30 +25,39 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home">
+        <activity android:name=".Home" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Registrasi" />
-        <activity android:name=".Listlaundry" />
-        <activity android:name=".Infolaundry" />
-        <activity android:name=".Login" />
-        <activity android:name=".Homepemilik" />
-        <activity android:name=".Inputpelanggan" />
-        <activity android:name=".Liststatusplgn" />
+        <activity android:name=".LaundryOwner.Registration"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LaundryCustomer.ListLaundry"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LaundryCustomer.InfoLaundry"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LaundryOwner.Login"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LaundryOwner.HomeOwnerLaundry"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LaundryOwner.Order"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LaundryCustomer.ListStatusOrder"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Maps"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".Mapspemilik"
-            android:label="Map"/>
+            android:name=".LaundryCustomer.Maps"
+            android:label="@string/title_activity_maps"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".LaundryOwner.MapsOwner"
+            android:label="Map"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

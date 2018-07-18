@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LaundryOwner.Registration"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="120dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="75dp"
+        android:background="@drawable/updatelogo"
+        android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+        android:id="@+id/kotaktransparan"
+        android:layout_below="@id/title"
+        android:layout_width="330dp"
+        android:layout_height="300dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/kotaktransparansignup">
+
+
+        <EditText
+            android:id="@+id/upEmail"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="E-mail"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/upPassword"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="Password"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_below="@+id/upEmail"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/upNama"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="Nama Perusahaan / Laundry"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_below="@+id/upPassword"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/upAlamat"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="Alamat Laundry"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_below="@+id/upNama"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/upNohp"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="Nomor Telepon"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_below="@+id/upAlamat"
+            android:layout_marginTop="5dp"
+            />
+
+        <EditText
+            android:id="@+id/upHarga"
+            android:layout_width="300dp"
+            android:layout_height="30dp"
+            android:hint="Harga"
+            android:layout_centerHorizontal="true"
+            android:textAlignment="center"
+            android:background="@drawable/kotakhint"
+            android:inputType="text"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_below="@+id/upNohp"
+            android:layout_marginTop="5dp"
+            />
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="15dp"
+            android:layout_centerHorizontal="true"
+            android:text="Update"
+            android:theme="@style/PrimaryButton"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>

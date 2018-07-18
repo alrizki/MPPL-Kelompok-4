@@ -10,8 +10,8 @@
     </style>
 
     <style name="PrimaryButton" parent="Theme.AppCompat">
-        <item name="colorButtonNormal">@color/colorPrimary</item>
-        <item name="colorControlHighlight">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+        <item name="colorControlHighlight">@color/click</item>
     </style>
 
     <style name="OnClick1" parent="Theme.AppCompat">
