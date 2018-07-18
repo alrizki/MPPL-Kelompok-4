@@ -7,31 +7,31 @@
     android:layout_height="match_parent"
     tools:context="laundry.laundry.LaundryOwner.Order">
 
-    <Spinner
-        android:id="@+id/editStatus"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editPlgn"
-        android:layout_below="@+id/textView5"
-        android:entries="@array/cekstatus" />
+        android:layout_height="110dp"
+        android:orientation="vertical"
+        android:background="@color/click">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="119dp"
-        android:layout_height="32dp"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editPlgn"
-        android:text="Status"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="60dp" />
+        <Spinner
+            android:id="@+id/editStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_alignEnd="@+id/editPlgn"
+            android:entries="@array/cekstatus" />
 
-    <Button
-        android:id="@+id/btnSimpans"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editStatus"
-        android:layout_marginTop="22dp"
-        android:text="Simpan" />
-
+        <Button
+            android:id="@+id/btnSimpans"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editStatus"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:text="Simpan"
+            android:theme="@style/PrimaryButton"/>
+    </LinearLayout>
 </RelativeLayout>

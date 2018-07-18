@@ -62,6 +62,8 @@ public class Registration extends AppCompatActivity {
 
         btnRegistrasi = findViewById(R.id.btnRegistrasi);
 
+        getWindow().setBackgroundDrawableResource(R.drawable.background);
+
         //function ketika tombol signlink di click
         _signinLink.setOnClickListener(new View.OnClickListener(){
             @Override

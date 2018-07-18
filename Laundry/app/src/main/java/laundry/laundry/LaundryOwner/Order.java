@@ -5,7 +5,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DialogTitle;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
@@ -160,7 +162,8 @@ public class Order extends AppCompatActivity {
         final Spinner editStatus = (Spinner) dialogView.findViewById(R.id.editStatus);
         final Button btnSimpans = (Button) dialogView.findViewById(R.id.btnSimpans);
 
-        dialogBuilder.setTitle("Update Status " + Nama);
+
+        dialogBuilder.setTitle("Update Status " +Nama);
 
         final AlertDialog alertDialog = dialogBuilder.create();
         alertDialog.show();
@@ -228,7 +231,6 @@ public class Order extends AppCompatActivity {
                         intent.putExtra(Username, tbl_user.getUsername());
                         intent.putExtra(Password, tbl_user.getPassword());
                         startActivity(intent);
-                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                         finish();
                     }
                 }
@@ -240,7 +242,7 @@ public class Order extends AppCompatActivity {
             }
         });
         startActivity(i);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         finish();
     }
 }

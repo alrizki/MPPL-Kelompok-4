@@ -148,8 +148,48 @@ public class ListStatusOrder extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // handle arrow click here
         if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(this, InfoLaundry.class));// close this activity and return to preview activity (if there is any)
+            Intent i = new Intent(ListStatusOrder.this, InfoLaundry.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            final Intent intent = getIntent();
+            final String username = intent.getStringExtra(InfoLaundry.Username);
+            final ProgressDialog mDialog = new ProgressDialog(ListStatusOrder.this);
+            mDialog.setMessage("Mohon menunggu..");
+            mDialog.show();
+
+            table_user.addListenerForSingleValueEvent(new ValueEventListener() {
+
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    //cek jika user tidak terdaftar didatabase
+                    if (dataSnapshot.child(username.toString()).exists()) {
+
+                        //ambil data user
+                        mDialog.dismiss();
+                        final tbl_user tbl_user = dataSnapshot.child(username.toString()).getValue(laundry.laundry.database.tbl_user.class);
+                        if (tbl_user.getUsername().equals(username.toString())) {
+                            Intent intent = new Intent(getApplicationContext(), InfoLaundry.class);
+                            intent.putExtra(Nama, tbl_user.getNama());
+                            intent.putExtra(Alamat, tbl_user.getAlamat());
+                            intent.putExtra(Email, tbl_user.getEmail());
+                            intent.putExtra(Nohp, tbl_user.getNohp());
+                            intent.putExtra(Harga, tbl_user.getHarga());
+                            intent.putExtra(Username, tbl_user.getUsername());
+                            intent.putExtra(Password, tbl_user.getPassword());
+                            startActivity(intent);
+                            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+                            finish();
+                        }
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+            startActivity(i);
             overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

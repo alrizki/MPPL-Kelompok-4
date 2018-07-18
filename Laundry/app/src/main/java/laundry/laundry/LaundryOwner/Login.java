@@ -59,6 +59,8 @@ public class Login extends AppCompatActivity {
         Password = findViewById(R.id.Password);
         btnLogin = (Button)findViewById(R.id.btnLogin);
 
+        getWindow().setBackgroundDrawableResource(R.drawable.background);
+
         //function tombol back ke home
         _backbtn.setOnClickListener(new View.OnClickListener() {
 

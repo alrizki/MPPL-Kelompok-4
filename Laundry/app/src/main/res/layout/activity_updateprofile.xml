@@ -13,7 +13,7 @@
         android:layout_width="120dp"
         android:layout_height="65dp"
         android:layout_marginTop="75dp"
-        android:background="@drawable/updatelogo"
+        android:background="@drawable/updatetittle"
         android:layout_centerHorizontal="true"/>
 
     <RelativeLayout

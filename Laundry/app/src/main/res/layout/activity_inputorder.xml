@@ -78,7 +78,7 @@
     <android.support.v7.widget.CardView
         android:id="@+id/editbar"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="100dp"
         android:layout_below="@+id/toolbar"
         app:cardBackgroundColor="@color/colorPrimary"
         app:cardElevation="5dp">
@@ -87,7 +87,7 @@
             android:id="@+id/layout"
             android:layout_centerHorizontal="true"
             android:layout_width="match_parent"
-            android:layout_height="120dp"
+            android:layout_height="100dp"
             android:orientation="horizontal"
             android:weightSum="2">
 

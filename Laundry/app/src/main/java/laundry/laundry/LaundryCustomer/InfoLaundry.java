@@ -186,7 +186,8 @@ public class InfoLaundry extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Start the Signup activity
-                Intent intent = new Intent(getApplicationContext(), ListLaundry.class);
+                Intent intent = new Intent(InfoLaundry.this, ListLaundry.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
                 finish();
