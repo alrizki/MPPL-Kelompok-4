@@ -48,10 +48,13 @@
                 android:text="Pemilik Laundry"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                tools:ignore="RtlCompat"
                 android:gravity="center"
                 android:layout_gravity="left"
-                android:drawableLeft="@drawable/ic_arrow_left"/>
+                android:drawableLeft="@drawable/ic_arrow_left"
+                android:shadowColor="@color/black"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"/>
 
         </LinearLayout>
 
@@ -75,7 +78,10 @@
                     android:textStyle="bold"
                     android:textColor="@drawable/textview_color_change1"
                     android:textSize="20dp"
-                    tools:ignore="RtlCompat" />
+                    android:shadowColor="@color/black"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
