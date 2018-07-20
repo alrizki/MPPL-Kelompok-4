@@ -6,12 +6,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:weightSum="2"
-        android:orientation="horizontal"
+        android:layout_height="70dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
         android:gravity="center_vertical"
-        android:background="?android:attr/selectableItemBackgroundBorderless">
+        android:orientation="horizontal"
+        android:weightSum="2">
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -33,8 +35,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:weightSum="2"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:weightSum="3">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -45,12 +47,12 @@
                         android:id="@+id/textViewNama"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center_vertical"
                         android:paddingLeft="10dp"
                         android:text="TextView"
                         android:textColor="@color/black"
                         android:textSize="24dp"
-                        android:textStyle="bold"
-                        android:gravity="center_vertical"/>
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -63,11 +65,26 @@
                         android:id="@+id/textViewStatus"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:gravity="center_vertical"
                         android:paddingLeft="10dp"
-                        android:text="TextView"
-                        android:gravity="center_vertical"/>
+                        android:text="TextView" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/textViewTanggal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="TextView" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
+
 </RelativeLayout>

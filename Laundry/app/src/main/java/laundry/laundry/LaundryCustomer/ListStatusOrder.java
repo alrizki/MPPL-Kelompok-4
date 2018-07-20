@@ -109,7 +109,7 @@ public class ListStatusOrder extends AppCompatActivity {
             @Override
             protected void populateViewHolder(UsersViewHolder viewHolder, pelanggan model, int position) {
 
-                viewHolder.setDetails(getApplicationContext(), model.getNama(), model.getStatus());
+                viewHolder.setDetails(getApplicationContext(), model.getNama(), model.getStatus(), model.getTanggal());
 
             }
         };
@@ -131,14 +131,16 @@ public class ListStatusOrder extends AppCompatActivity {
 
         }
 
-        public void setDetails(Context ctx, String userName, String userStatus){
+        public void setDetails(Context ctx, String userName, String userStatus, String userTgl){
 
             TextView user_name = (TextView) mView.findViewById(R.id.name_text);
             TextView user_status = (TextView) mView.findViewById(R.id.status_text);
+            TextView user_tgl = (TextView) mView.findViewById(R.id.tgl_text);
 
 
             user_name.setText(userName);
             user_status.setText(userStatus);
+            user_tgl.setText(userTgl);
 
         }
     }

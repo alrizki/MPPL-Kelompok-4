@@ -42,11 +42,13 @@ public class ListByNameOrder extends ArrayAdapter<pelanggan> {
 
         TextView textViewName = (TextView) listViewItem.findViewById(R.id.textViewNama);
         TextView textViewStatus = (TextView) listViewItem.findViewById(R.id.textViewStatus);
+        TextView textViewTgl = (TextView) listViewItem.findViewById(R.id.textViewTanggal);
 
         pelanggan plgn = plgnList.get(position);
 
         textViewName.setText(plgn.getNama());
         textViewStatus.setText(plgn.getStatus());
+        textViewTgl.setText(plgn.getTanggal());
 
         return listViewItem;
     }

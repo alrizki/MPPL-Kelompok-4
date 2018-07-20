@@ -50,6 +50,7 @@ public class Order extends AppCompatActivity {
 
     TextView viewUsername;
     EditText editPlgn;
+    EditText editTgl;
     Spinner editStatus;
 
 
@@ -68,6 +69,7 @@ public class Order extends AppCompatActivity {
         //inisialisasi variabel layout
         viewUsername = (TextView) findViewById(R.id.viewUsername);
         editPlgn = (EditText) findViewById(R.id.editPlgn);
+        editTgl = (EditText) findViewById(R.id.editTgl);
         editStatus = (Spinner) findViewById(R.id.editStatus);
 
 
@@ -100,7 +102,7 @@ public class Order extends AppCompatActivity {
 
                 pelanggan plgn = plgnList.get(i);
 
-                showUpdateDialog(username, plgn.getPlgnId(), plgn.getNama(), plgn.getStatus());
+                showUpdateDialog(username, plgn.getPlgnId(), plgn.getNama(), plgn.getTanggal(), plgn.getStatus());
 
                 return false;
             }
@@ -136,12 +138,13 @@ public class Order extends AppCompatActivity {
     //function untuk menyimpan data pelanggan dan save ke firebase
     private void savePlgn(){
         String namaplgn = editPlgn.getText().toString().trim();
+        String tanggal = editTgl.getText().toString().trim();
         String status = editStatus.getSelectedItem().toString();
 
         if(!TextUtils.isEmpty(namaplgn)){
             String idplgn = databasePlgn.push().getKey();
 
-            pelanggan plgn = new pelanggan(idplgn, namaplgn, status);
+            pelanggan plgn = new pelanggan(idplgn, namaplgn, tanggal, status);
 
             databasePlgn.child(idplgn).setValue(plgn);
             Toast.makeText(this, "Data berhasil di simpan", Toast.LENGTH_LONG).show();
@@ -151,7 +154,7 @@ public class Order extends AppCompatActivity {
     }
 
     //function untuk menampilkan dialog update saat data ke-i di click
-    private void showUpdateDialog(final String Username, final String plgnId, final String Nama, final String Status){
+    private void showUpdateDialog(final String Username, final String plgnId, final String Nama, final String Tanggal, final String Status){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
 
         LayoutInflater inflater = getLayoutInflater();
@@ -174,7 +177,7 @@ public class Order extends AppCompatActivity {
 
                 String status = editStatus.getSelectedItem().toString();
 
-                updateStatus(Username, plgnId, Nama, status);
+                updateStatus(Username, plgnId, Nama, Tanggal, status);
 
                 alertDialog.dismiss();
             }
@@ -182,10 +185,10 @@ public class Order extends AppCompatActivity {
     }
 
     //function untuk edit data pelanggan
-    private boolean updateStatus(String Username, String plgnId, String Nama, String Status){
+    private boolean updateStatus(String Username, String plgnId, String Nama, String Tanggal, String Status){
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("plgn").child(Username).child(plgnId);
 
-        pelanggan plgn = new pelanggan(plgnId, Nama, Status);
+        pelanggan plgn = new pelanggan(plgnId, Nama, Tanggal, Status);
 
         databaseReference.setValue(plgn);
 
