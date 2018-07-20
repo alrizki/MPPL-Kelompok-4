@@ -71,6 +71,7 @@ public class Order extends AppCompatActivity {
         editPlgn = (EditText) findViewById(R.id.editPlgn);
         editTgl = (EditText) findViewById(R.id.editTgl);
         editStatus = (Spinner) findViewById(R.id.editStatus);
+        viewUsername.setVisibility(View.INVISIBLE);
 
 
 

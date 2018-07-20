@@ -43,7 +43,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:weightSum="3"
+                        android:weightSum="2"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -69,27 +69,36 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1">
 
-                            <TextView
-                                android:id="@+id/status_text"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:paddingLeft="10dp"
-                                android:text="TextView"
-                                android:gravity="center_vertical"/>
-                        </LinearLayout>
+                                android:weightSum="2"
+                                android:orientation="horizontal">
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+                                    <TextView
+                                        android:id="@+id/status_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:paddingLeft="10dp"
+                                        android:text="TextView"
+                                        android:gravity="center_vertical"/>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+                                    <TextView
+                                        android:id="@+id/tgl_text"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:gravity="center"
+                                        android:text="TextView" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1">
-
-                            <TextView
-                                android:id="@+id/tgl_text"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="10dp"
-                                android:text="TextView" />
+                                </LinearLayout>
+                            </LinearLayout>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

@@ -18,10 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:weightSum="3">
+            android:weightSum="2">
 
             <LinearLayout
-                android:layout_width="180dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center">
@@ -43,7 +43,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="27dp"
                     app:cardBackgroundColor="@color/graylight"
-                    android:elevation="0dp">
+                    android:elevation="0dp"
+                    android:layout_marginRight="20dp">
 
                     <EditText
                     android:id="@+id/editPlgn"
@@ -58,27 +59,13 @@
                 </android.support.v7.widget.CardView>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="250dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-                <TextView
-                    android:id="@+id/viewUsername"
-                    android:textAlignment="center"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Username"
-                    android:textColor="@color/white"
-                    android:textSize="18dp"/>
-            </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.CardView
         android:id="@+id/editbar"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:layout_below="@+id/toolbar"
         app:cardBackgroundColor="@color/colorPrimary"
         app:cardElevation="5dp">
@@ -87,7 +74,7 @@
             android:id="@+id/layout"
             android:layout_centerHorizontal="true"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
             android:weightSum="2">
 
@@ -109,22 +96,44 @@
                     android:textAlignment="center"/>
                 <Spinner
                     android:id="@+id/editStatus"
-                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
                     android:entries="@array/cekstatus"
                     />
+                <TextView
+                    android:id="@+id/texttanggal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:text="Tanggal"
+                    android:textSize="20dp"
+                    android:layout_marginTop="5dp"
+                    android:textAlignment="center"/>
 
-                <EditText
-                    android:id="@+id/editTgl"
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:hint="Tanggal"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:maxLines="1"
-                    android:background="@android:color/transparent"/>
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    app:cardElevation="1dp">
+                    <EditText
+                        android:id="@+id/editTgl"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAlignment="center"
+                        android:textSize="14dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/black"
+                        android:hint="08/11/1996"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:maxLines="1"
+                        android:background="@android:color/transparent"/>
+                </android.support.v7.widget.CardView>
 
             </LinearLayout>
 
@@ -135,6 +144,11 @@
                 android:layout_weight="1"
                 android:clickable="true"
                 android:gravity="center">
+                <TextView
+                    android:id="@+id/viewUsername"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    />
 
                 <TextView
                     android:id="@+id/btnSimpan"
